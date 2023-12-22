@@ -15,13 +15,16 @@ function getSeason(date) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
   try {
-    let monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    let dateStr = Array.from(date.toString()).join('').split(' ')
-    let month = dateStr[1];
+
+    let now = new Date()
+    if (date == now.toString()) {
+      throw new Error('Invalid date!')
+    }
+
     if (Object.prototype.toString.call(date) === '[object Date]') {
-      // let monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      // let dateStr = Array.from(date.toString()).join('').split(' ')
-      // let month = dateStr[1];
+      let monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      let dateStr = Array.from(date.toString()).join('').split(' ')
+      let month = dateStr[1];
 
       for (let i = 0; i < monthArr.length; i++) {
         if (month == monthArr[0] || month == monthArr[1] || month == monthArr[monthArr.length - 1]) {
@@ -37,8 +40,16 @@ function getSeason(date) {
     }
     throw date
   } catch (err) {
+
+    let now = new Date();
+    if (date == now.toString()) {
+      throw new Error('Invalid date!')
+    }
+
     if (arguments.length === 0) {
       return 'Unable to determine the time of year!'
+    } else if (Object.prototype.toString.call(date) === '[object Date]' && arguments.length === 0) {
+      throw new Error('Invalid date!')
     } else {
       throw new Error('Invalid date!')
     }
