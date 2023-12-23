@@ -12,15 +12,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
-  // throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
-  try {
 
+  try {
     let now = new Date()
     if (date == now.toString()) {
       throw new Error('Invalid date!')
     }
-
     if (Object.prototype.toString.call(date) === '[object Date]') {
       let monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       let dateStr = Array.from(date.toString()).join('').split(' ')
