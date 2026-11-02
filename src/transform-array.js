@@ -13,7 +13,7 @@ const { NotImplementedError } = require('../lib');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  *
  */
-function transform(/* arr */) {
+function transform(arr) {
   // Remove line below and write your code here
   throw new NotImplementedError('Not implemented');
 }
